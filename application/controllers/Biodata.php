@@ -1,0 +1,22 @@
+<?php
+defined('BASEPATH') or exit('No direct script access allowed');
+
+class Biodata extends CI_Controller
+{
+  public function __construct()
+  {
+    parent::__construct();
+    is_logged_in();
+    $data['user'] = $this->db->get_where('users', ['email' => $this->session->userdata('email')])->row_array();
+  }
+  public function index()
+  {
+    $data['title'] = 'Biodata';
+
+    $this->load->view('templates/header', $data);
+    $this->load->view('templates/sidebar', $data);
+    $this->load->view('templates/topbar', $data);
+    $this->load->view('biodata/index', $data);
+    $this->load->view('templates/footer');
+  }
+}
