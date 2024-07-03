@@ -75,7 +75,7 @@ $query_builder = TRUE;
 
 $db['default'] = array(
 	'dsn'	=> '',
-	'hostname' => 'http://lsptanindo.com',
+	'hostname' => '103.163.138.165',
 	'username' => 'lsptanin_admin',
 	'password' => 'adminlsptanindo',
 	'database' => 'lsptanin_tanindo',
