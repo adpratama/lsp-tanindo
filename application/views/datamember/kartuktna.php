@@ -56,6 +56,7 @@
 
       <!-- Write HTML just like a web page -->
       <h3><?= $title; ?></h3>
+      <!-- <img src="<?= $penyimpanan; ?>.qrcode.png" alt="QrCode"> -->
 
     </div>
   </div>

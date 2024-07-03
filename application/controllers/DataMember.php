@@ -1,7 +1,9 @@
 <?php
 defined('BASEPATH') or exit('No direct script access allowed');
 
-include APPPATH . "libraries/phpqrcode/qrlib.php";
+// include APPPATH . "libraries/phpqrcode/qrlib.php";
+// include autoloader
+// include APPPATH . "dompdf/autoload.php";
 
 class DataMember extends CI_Controller
 {
@@ -30,27 +32,30 @@ class DataMember extends CI_Controller
   public function kartumember($uid)
   {
     // $uid = $this->uri->segment(3);
+    // nama folder tempat penyimpanan file qrcode
     // $penyimpanan = "assets/img/kartu";
-    // $query = "SELECT email FROM users WHERE uid=$uid";
-    // $a = $this->db->query($query)->row_array();
+
+    // membuat folder dengan nama "temp"
+    // if (!file_exists($penyimpanan))
+    //   mkdir($penyimpanan);
+
+    // isi qrcode yang ingin dibuat. akan muncul saat di scan
+    // $isi = base_url('home/biodata/') . $uid;
+
+    // perintah untuk membuat qrcode dan menyimpannya dalam folder temp
+    // $qr = QRcode::png($isi, $penyimpanan . "qrcode.png", QR_ECLEVEL_H);
+
+    // echo '<h2>Tutorial Membuat QR Code Dengan PHP</h2>';
+    // echo '<h3>www.malasngoding.com</h3>';
 
     // if (!file_exists($penyimpanan))
     //   mkdir($penyimpanan);
     // $param = base_url('datamember/kartuktna/') . $uid;
     // $qr = QRcode::png($param, $penyimpanan . 'qrcodeku.png', QR_ECLEVEL_H);
     // $data = [
-    //   // 'sertifikate' => $this->db->where('uid', $uid)->get('users')->row_array(),
-    //   'nama' => $this->db->where('full_name', $a['full_name'])->get('users')->row(),
+    //   'nama' => $isi,
     //   'qr_code' => $qr
     // ];
-
-    // if (empty($data['sertifikate'])) {
-    //   echo "<script>alert('Data tidak ditemukan!');window.location.replace('" . base_url('/user/sertifikate') . "'); </script>";
-    // } else if (count($data['nilai']) < 1) {
-    //   echo "<script>alert('Belum ada nilai!');window.location.replace('" . base_url('/user/sertifikate') . "'); </script>";
-    // } else {
-    //   $this->load->view('user/sertifikate_pdf', $data);
-    // }
 
     $this->load->library('pdfgenerator');
     $data['title'] = "KTNA Card";
