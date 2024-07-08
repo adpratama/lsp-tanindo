@@ -12,7 +12,7 @@ class DataMember extends CI_Controller
   {
     parent::__construct();
     // is_logged_in();
-    $this->load->model('member_model', 'M_member');
+    $this->load->model('Member_Model', 'M_member');
   }
   public function index()
   {
