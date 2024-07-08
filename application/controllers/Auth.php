@@ -247,10 +247,48 @@ class Auth extends CI_Controller
       );
 
       $this->db->insert('users', $mydata);
+
+      // kirim email
+      $this->_sendEmail();
+
       $this->session->set_flashdata('message', '<div class="alert alert-success" role="alert">
         Data berhasil Tersimpan!! silahkan login
       </div>');
       redirect('home');
+    }
+  }
+
+  private function _sendEmail()
+  {
+    $config = [
+      'protocol'  => 'smtp',
+      'smtp_host' => 'ssl://smtp.googlemail.com',
+      'smtp_user' => 'viona.noa@bdlwarehouse.com',
+      'smtp_pass' => 'bdl123!@#',
+      'smtp_port' => 465,
+      'mailtype'  => 'html',
+      'charset'   => 'utf-8',
+      'newline'   => "\r\n"
+
+    ];
+
+    $this->load->library('email', $config);
+
+    // $this->email->from('viona.noa@bdlwarehouse.com', 'Bandes Training Center');
+    $this->email->from('viona.noa@bdlwarehouse.com', 'Bandes Training Center');
+    $this->email->to('mukhbit97@gmail.com');
+    // $this->email->cc('adm.bec@harints.com');
+    // $this->email->cc('mukhbit97@gmail.com');
+    // $this->email->bcc('them@their-example.com');
+
+    $this->email->subject('Email Test');
+    $this->email->message('Testing the email class.');
+
+    if ($this->email->send()) {
+      return true;
+    } else {
+      echo $this->email->print_debugger();
+      die;
     }
   }
 

@@ -19,4 +19,20 @@ class Home extends CI_Controller
     $this->load->view('home/index');
     $this->load->view('templates/v_footer');
   }
+
+  public function biodata($nik)
+  {
+    $nik = $this->uri->segment(3);
+
+    // $data['user'] = $this->db->get_where('users', $nik)->row_array();
+    $query = "SELECT * FROM `users` WHERE `nik` = $nik";
+    $data['user'] = $this->db->query($query)->row_array();
+    // var_dump($data, $nik);
+    // exit;
+
+    $data['title'] = 'Biodata';
+    // $this->load->view('templates/v_header', $data);
+    $this->load->view('home/biodata', $data);
+    // $this->load->view('templates/v_footer');
+  }
 }

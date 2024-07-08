@@ -14,24 +14,69 @@
 
   <style>
     @page {
-      size: 5.5in 8.5in;
+      size: 3.39in 2.14in;
+      margin: none;
+      padding: none;
     }
 
     @page {
-      size: A7 landscape;
+      size: A6 landscape;
     }
 
     .page {
       margin: none;
+      /* padding: none; */
     }
 
     .lembar1 {
       background-image: url("<?= base_url('assets/img/') ?>kartu/front.png");
-      background-size: 100% 95%;
+      /* background-image: url("<?= base_url('assets/img/') ?>kartu/sertifikat_depan.png"); */
+      background-size: cover;
       background-repeat: no-repeat;
       /* background-repeat: no-repeat; */
       padding: 0;
       margin: none;
+    }
+
+    .kiri {
+      text-align: left;
+      padding-left: 10px;
+      padding-top: 8px;
+    }
+
+    .kiri b {
+      color: grey;
+    }
+
+    .kanan {
+      position: relative;
+      padding: 10px;
+      bottom: 100px;
+      float: right;
+      object-fit: none;
+      object-position: top;
+    }
+
+    .qrcode {
+      padding-left: 10px;
+    }
+
+    .qrcode b {
+      color: grey;
+    }
+
+    .bawah {
+      text-align: right;
+      padding-right: 10px;
+      padding-bottom: 8px;
+    }
+
+    .bawah b {
+      color: gray;
+    }
+
+    .bagian_kanan {
+      padding-left: 220px;
     }
   </style>
   <!-- Load paper.css for happy printing -->
@@ -45,21 +90,49 @@
   <link rel="stylesheet" media="print" href="print.css" />
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Dancing+Script&family=Dosis:wght@300&display=swap" rel="stylesheet">
 </head>
 
 <!-- Set "A5" , "A4" or "A3" for class name -->
 <!-- Set also "landscape" if you need -->
 
-<body class="A7 landscape">
+<body class="A6 landscape">
   <div class="page">
     <div class="lembar1 sheet padding-10mm">
 
       <!-- Write HTML just like a web page -->
-      <h3><?= $title; ?></h3>
-      <!-- <img src="<?= $penyimpanan; ?>.qrcode.png" alt="QrCode"> -->
+      <div class="container">
 
+        <div class="kiri">
+          <h3><?= $title; ?><br><b>Anggota</b></h3>
+          <p><?= $users['tanggal_lahir'] ?></p>
+        </div>
+        <div class="kanan">
+          <img src="<?= base_url('assets/img/profile/') . $gambar_logo ?>" alt="LogoGambar" align="right" height="70px" width="110px">
+        </div>
+      </div>
+      <br>
+      <table>
+        <tr>
+          <td class="bagian_kiri">
+            <div class="qrcode">
+              <img src="<?= base_url('assets/img/kartu/') . $gambar_name ?>" alt="QrCode" height="100px" width="100px"><br>
+              <h4><?= $users['nik'] ?><br><b><?= $users['alamat'] ?></b></h4>
+            </div>
+          </td>
+          <td class="bagian_kanan">
+            <div class="bawah">
+              <img src="<?= base_url('assets/img/profile/') . $users['foto'] ?>" alt="foto_profile" align="right" height="100px" width="100px"><br><br><br>
+              <h3><?= $users['full_name'] ?><br><b><?= $users['kebangsaan'] ?></b></h3>
+            </div>
+          </td>
+        </tr>
+      </table>
     </div>
   </div>
+  <script type="text/javascript">
+    window.print();
+  </script>
 </body>
 
 </html>

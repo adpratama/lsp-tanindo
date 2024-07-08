@@ -1,7 +1,8 @@
 <?php
 defined('BASEPATH') or exit('No direct script access allowed');
 
-// include APPPATH . "libraries/phpqrcode/qrlib.php";
+include APPPATH . "libraries/qrcode/qrlib.php";
+// include APPPATH . "libraries/Ciqrcode.php";
 // include autoloader
 // include APPPATH . "dompdf/autoload.php";
 
@@ -29,36 +30,40 @@ class DataMember extends CI_Controller
     $this->load->view('templates/footer');
   }
 
-  public function kartumember($uid)
+  public function kartumember($nik)
   {
-    // $uid = $this->uri->segment(3);
+    // $this->load->library('ciqrcode');
+    $nik = $this->uri->segment(3);
     // nama folder tempat penyimpanan file qrcode
-    // $penyimpanan = "assets/img/kartu";
+    $penyimpanan = "assets/img/kartu/";
 
     // membuat folder dengan nama "temp"
-    // if (!file_exists($penyimpanan))
-    //   mkdir($penyimpanan);
+    if (!file_exists($penyimpanan))
+      mkdir($penyimpanan);
 
     // isi qrcode yang ingin dibuat. akan muncul saat di scan
-    // $isi = base_url('home/biodata/') . $uid;
+    $isi = base_url('home/biodata/') . $nik;
+
+    $file_name = date("Ymd") . "_" . $nik . ".png";
+    $file_path = $penyimpanan . $file_name;
 
     // perintah untuk membuat qrcode dan menyimpannya dalam folder temp
-    // $qr = QRcode::png($isi, $penyimpanan . "qrcode.png", QR_ECLEVEL_H);
+    // $qr = QRcode::png($isi, $penyimpanan . "qrcodeku.png", QR_ECLEVEL_H);
+    $qr = QRcode::png($isi, $file_path, 'L');
+    $gambar_logo = 'lsp_tani_logo.jpg';
 
-    // echo '<h2>Tutorial Membuat QR Code Dengan PHP</h2>';
-    // echo '<h3>www.malasngoding.com</h3>';
+    $data = [
+      'users' => $this->db->where('nik', $nik)->get('users')->row_array(),
+      'nik_user' => $isi,
+      'qr_code' => $qr,
+      'gambar_name' => $file_name,
+      'gambar_logo' => $gambar_logo
+    ];
 
-    // if (!file_exists($penyimpanan))
-    //   mkdir($penyimpanan);
-    // $param = base_url('datamember/kartuktna/') . $uid;
-    // $qr = QRcode::png($param, $penyimpanan . 'qrcodeku.png', QR_ECLEVEL_H);
-    // $data = [
-    //   'nama' => $isi,
-    //   'qr_code' => $qr
-    // ];
+    // $this->load->view('datamember/test', $data, true);
 
     $this->load->library('pdfgenerator');
-    $data['title'] = "KTNA Card";
+    $data['title'] = "KTNA CARD";
     $file_pdf = $data['title'];
     $paper = 'A5'; //15x25mm.
     $orientation = "landscape";

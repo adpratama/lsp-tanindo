@@ -73,33 +73,12 @@ defined('BASEPATH') or exit('No direct script access allowed');
 $active_group = 'default';
 $query_builder = TRUE;
 
-// $db['default'] = array(
-// 	'dsn'	=> '',
-// 	'hostname' => 'http://lsptanindo.com',
-// 	'username' => 'lsptanin_admin',
-// 	'password' => 'adminlsptanindo',
-// 	'database' => 'lsptanin_tanindo',
-// 	'dbdriver' => 'mysqli',
-// 	'dbprefix' => '',
-// 	'pconnect' => FALSE,
-// 	'db_debug' => (ENVIRONMENT !== 'production'),
-// 	'cache_on' => FALSE,
-// 	'cachedir' => '',
-// 	'char_set' => 'utf8',
-// 	'dbcollat' => 'utf8_general_ci',
-// 	'swap_pre' => '',
-// 	'encrypt' => FALSE,
-// 	'compress' => FALSE,
-// 	'stricton' => FALSE,
-// 	'failover' => array(),
-// 	'save_queries' => TRUE
-// );
 $db['default'] = array(
 	'dsn'	=> '',
-	'hostname' => 'localhost',
-	'username' => 'root',
-	'password' => '',
-	'database' => 'tanindo',
+	'hostname' => 'http://lsptanindo.com',
+	'username' => 'lsptanin_admin',
+	'password' => 'adminlsptanindo',
+	'database' => 'lsptanin_tanindo',
 	'dbdriver' => 'mysqli',
 	'dbprefix' => '',
 	'pconnect' => FALSE,
@@ -115,3 +94,31 @@ $db['default'] = array(
 	'failover' => array(),
 	'save_queries' => TRUE
 );
+// $db['default'] = array(
+// 	'dsn'	=> '',
+// 	// <<<<<<< HEAD
+// 	'hostname' => 'localhost',
+// 	'username' => 'root',
+// 	'password' => '',
+// 	'database' => 'tanindo',
+// 	// =======
+// 	'hostname' => '103.163.138.165',
+// 	'username' => 'lsptanin_admin',
+// 	'password' => 'adminlsptanindo',
+// 	'database' => 'lsptanin_tanindo',
+// 	// >>>>>>> ec6a32835f8a7db16bccc4784a95ed518ad73768
+// 	'dbdriver' => 'mysqli',
+// 	'dbprefix' => '',
+// 	'pconnect' => FALSE,
+// 	'db_debug' => (ENVIRONMENT !== 'production'),
+// 	'cache_on' => FALSE,
+// 	'cachedir' => '',
+// 	'char_set' => 'utf8',
+// 	'dbcollat' => 'utf8_general_ci',
+// 	'swap_pre' => '',
+// 	'encrypt' => FALSE,
+// 	'compress' => FALSE,
+// 	'stricton' => FALSE,
+// 	'failover' => array(),
+// 	'save_queries' => TRUE
+// );

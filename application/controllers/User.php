@@ -32,6 +32,7 @@ class User extends CI_Controller
     $this->form_validation->set_rules('username', 'Username', 'required|trim');
     $this->form_validation->set_rules('fullname', 'Fullname', 'required|trim');
     $this->form_validation->set_rules('phone', 'Phone', 'required|trim');
+    $this->form_validation->set_rules('alamat', 'Alamat', 'required|trim');
 
     if ($this->form_validation->run() == false) {
       $this->load->view('templates/header', $data);
@@ -43,6 +44,7 @@ class User extends CI_Controller
       $username = $this->input->post('username');
       $fullname = $this->input->post('fullname');
       $phone = $this->input->post('phone');
+      $alamat = $this->input->post('alamat');
       $email = $this->input->post('email');
 
       // cek jika ada gambar
@@ -79,6 +81,7 @@ class User extends CI_Controller
       $this->db->set('phone_number', $phone);
       $this->db->set('full_name', $fullname);
       $this->db->set('username', $username);
+      $this->db->set('alamat', $alamat);
       $this->db->where('email', $email);
       $this->db->update('users');
 
@@ -95,60 +98,40 @@ class User extends CI_Controller
 
     $data['user'] = $this->db->get_where('users', ['email' => $this->session->userdata('email')])->row_array();
 
-    $this->load->view('templates/header', $data);
-    $this->load->view('templates/sidebar', $data);
-    $this->load->view('templates/topbar', $data);
-    $this->load->view('user/change_password', $data);
-    $this->load->view('templates/footer');
-  }
+    $this->form_validation->set_rules('current_password', 'Current Password', 'required|trim');
+    $this->form_validation->set_rules('new_password1', 'New Password', 'required|trim|min_length[8]|matches[new_password2]');
+    $this->form_validation->set_rules('new_password2', 'Confrim New Password', 'required|trim|min_length[8]|matches[new_password1]');
 
-  public function testing()
-  {
-    $cat_image_name = $_FILES["cat_image"]["name"];
+    if ($this->form_validation->run() == false) {
+      $this->load->view('templates/header', $data);
+      $this->load->view('templates/sidebar', $data);
+      $this->load->view('templates/topbar', $data);
+      $this->load->view('user/change_password', $data);
+      $this->load->view('templates/footer');
+    } else {
+      $current_passwors = $this->input->post('current_password');
+      $new_password = $this->input->post('new_password1');
 
-    //file uploading params
-    $config['upload_path'] = './uploaded_files/categories';
-    $config['allowed_types'] = 'gif|jpg|png';
-    $config['file_name'] = $image_id . "_ipad";
-    $config['remove_spaces'] = TRUE;
+      if (!password_verify($current_passwors, $data['user']['password'])) {
+        $this->session->set_flashdata('message', '<div class="alert alert-warning" role="alert">
+          Wrong Current Password!!
+        </div>');
+        redirect('user/change_password');
+      } else {
+        if ($current_passwors == $new_password) {
+          $this->session->set_flashdata('message', '<div class="alert alert-danger" role="alert">New Password Cannot be the same Old Password</div>');
+          redirect('user/change_password');
+        } else {
+          // password sudah ok
+          $password_hash = password_hash($new_password, PASSWORD_DEFAULT);
 
-    //Loading Library - File Uploading
-    $this->load->library('upload', $config);
-
-    //Upload the image(Ipad)
-    if (!empty($cat_image_name)) {
-      $this->upload->do_upload('cat_image');
-      $data = array('upload_data' => $this->upload->data());
-      $category_image_ipad = $data['upload_data']['file_name'];
-      $img_extension = $data['upload_data']['file_ext'];
+          $this->db->set('password', $password_hash);
+          $this->db->where('email', $this->session->userdata('email'));
+          $this->db->update('users');
+          $this->session->set_flashdata('message', '<div class="alert alert-success" role="alert">Password Changed!</div>');
+          redirect('user/change_password');
+        }
+      }
     }
   }
-
-  //   private function uploadPhoto($slug)
-  //     {
-  //         $photo = $_FILES['team_photo']['name'];
-  //         $path_info = pathinfo($photo);
-  //         $extension = $path_info['extension'];
-  //         $new_photo_file_name = $slug . '.' . $extension;
-
-  //         $config = [
-  //             'upload_path' => 'assets/front/images/team/',
-  //             'allowed_types' => 'jpeg|jpg|JPEG|JPG|PNG|png',
-  //             'overwrite' => TRUE,
-  //             'max_size' => '99999999999',
-  //             'max_height' => '3000',
-  //             'max_width' => '3000',
-  //             'file_name' => $new_photo_file_name,
-  //         ];
-
-  //         $this->load->library('upload', $config);
-
-  //         if (!$this->upload->do_upload('team_photo')) {
-  //             $error = $this->upload->display_errors();
-  //             $this->session->set_flashdata('message_error', 'Error message: ' . $error);
-  //             redirect($_SERVER['HTTP_REFERER'], $error);
-  //         }
-
-  //         return $new_photo_file_name;
-  //     }
 }

@@ -52,6 +52,10 @@
               <div class="col-lg-3 col-md-4 label">No. Handphone</div>
               <div class="col-lg-9 col-md-8"><?= $user['phone_number'] ?></div>
             </div>
+            <div class="row">
+              <div class="col-lg-3 col-md-4 label">Alamat</div>
+              <div class="col-lg-9 col-md-8"><?= $user['alamat'] ?></div>
+            </div>
 
             <div class="row">
               <div class="col-lg-3 col-md-4 label">Email</div>

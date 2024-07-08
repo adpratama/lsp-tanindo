@@ -15,21 +15,6 @@
           <div class="card-body">
             <!-- Profile Edit Form -->
             <form action="<?= base_url('user/edit_profile') ?>" method="post" enctype="multipart/form-data" id="form-update-profile">
-              <!-- <div class="row mb-3">
-                <label for="profileImage" class="col-md-4 col-lg-3 col-form-label">Foto Profile</label>
-                <div class="col-md-8 col-lg-9">
-                  <?php if (!$user['foto']) { ?>
-                    <img src="<?= base_url('assets'); ?>/img/profile/default.png" alt="profile" class="my-profile">
-                  <?php } else { ?>
-                    <img src="<?= base_url('assets/img/profile/') . $user['foto'] ?>" alt="Profile" class="my-profile">
-                  <?php } ?>
-                  <div class="pt-2 mt-3">
-                    <label class="btn btn-primary btn-sm" style="color: white;"><i class="fas fa-upload"></i>
-                      <input type="file" name="profile" id="img-profile" class="d-none">
-                    </label>
-                  </div>
-                </div>
-              </div> -->
               <div class="row">
                 <div class="col-sm-3">
                   <img src="<?= base_url('assets/img/profile/') . $user['foto']; ?>" class="img-thumbnail">
@@ -69,6 +54,12 @@
                   <input name="phone" type="text" class="form-control" id="phone" value="<?= $user['phone_number'] ?>">
                 </div>
               </div>
+              <div class="row mb-3">
+                <label for="phone" class="col-md-4 col-lg-3 col-form-label">Alamat</label>
+                <div class="col-md-8 col-lg-9">
+                  <input name="alamat" type="text" class="form-control" id="alamat" value="<?= $user['alamat'] ?>">
+                </div>
+              </div>
 
               <div class="row mb-3">
                 <label for="email" class="col-md-4 col-lg-3 col-form-label">Email</label>
@@ -76,7 +67,6 @@
                   <input name="email" type="text" class="form-control" id="email" value="<?= $user['email'] ?>" readonly>
                 </div>
               </div>
-              <!-- <input type="hidden" id="my_data" name="<?= $this->security->get_csrf_token_name(); ?>" value="<?= $this->security->get_csrf_hash(); ?>" style="display: none"> -->
               <div class="text-end">
                 <button type="submit" class="btn btn-primary" id="btn-update-profile"><i class="bi bi-floppy-fill"></i> Simpan</button>
               </div>
