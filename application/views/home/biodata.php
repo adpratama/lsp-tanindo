@@ -16,7 +16,7 @@
   <style>
     .bungkus {
       padding-top: 20px;
-      padding-left: ;
+      /* padding-left: ; */
     }
 
     .body-html {
