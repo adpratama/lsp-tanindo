@@ -14,13 +14,13 @@
 
   <style>
     @page {
-      size: 3.39in 2.14in;
+      size: 33.85in 21.25in;
       margin: none;
       padding: none;
     }
 
     @page {
-      size: A6 landscape;
+      size: A7 landscape;
     }
 
     .page {
@@ -39,22 +39,17 @@
     }
 
     .kiri {
-      text-align: left;
+      width: 100px;
       padding-left: 10px;
-      padding-top: 8px;
     }
 
     .kiri b {
-      color: grey;
+      color: gray;
     }
 
     .kanan {
-      position: relative;
-      padding: 10px;
-      bottom: 100px;
-      float: right;
-      object-fit: none;
-      object-position: top;
+      padding-bottom: 50px;
+      padding-left: 190px;
     }
 
     .qrcode {
@@ -76,7 +71,12 @@
     }
 
     .bagian_kanan {
-      padding-left: 220px;
+      padding-left: 50px;
+      text-align: right;
+    }
+
+    .bagian_kiri {
+      width: 220px;
     }
   </style>
   <!-- Load paper.css for happy printing -->
@@ -96,34 +96,39 @@
 <!-- Set "A5" , "A4" or "A3" for class name -->
 <!-- Set also "landscape" if you need -->
 
-<body class="A6 landscape">
+<body class="A7 landscape">
   <div class="page">
     <div class="lembar1 sheet padding-10mm">
 
       <!-- Write HTML just like a web page -->
-      <div class="container">
-
-        <div class="kiri">
-          <h3><?= $title; ?><br><b>Anggota</b></h3>
-          <p><?= $users['tanggal_lahir'] ?></p>
-        </div>
-        <div class="kanan">
-          <img src="<?= base_url('assets/img/profile/') . $gambar_logo ?>" alt="LogoGambar" align="right" height="70px" width="110px">
-        </div>
-      </div>
-      <br>
+      <table>
+        <tr>
+          <td>
+            <div class="kiri">
+              <h5><?= $title; ?><br><b>Anggota</b><br><?= $users['tanggal_lahir'] ?></h5>
+              <!-- <p><?= $users['tanggal_lahir'] ?></p> -->
+            </div>
+          </td>
+          <td>
+            <div class="kanan">
+              <img src="<?= base_url('assets/img/profile/') . $gambar_logo ?>" alt="LogoGambar" align="right" height="60px" width="80px">
+            </div>
+          </td>
+        </tr>
+      </table>
+      <!-- <br> -->
       <table>
         <tr>
           <td class="bagian_kiri">
             <div class="qrcode">
-              <img src="<?= base_url('assets/img/kartu/') . $gambar_name ?>" alt="QrCode" height="100px" width="100px"><br>
-              <h4><?= $users['nik'] ?><br><b><?= $users['alamat'] ?></b></h4>
+              <img src="<?= base_url('assets/img/kartu/') . $gambar_name ?>" alt="QrCode" height="60px" width="60px"><br>
+              <h5><?= $users['nik'] ?><br><b><?= $users['alamat'] ?></b></h5>
             </div>
           </td>
           <td class="bagian_kanan">
             <div class="bawah">
-              <img src="<?= base_url('assets/img/profile/') . $users['foto'] ?>" alt="foto_profile" align="right" height="100px" width="100px"><br><br><br>
-              <h3><?= $users['full_name'] ?><br><b><?= $users['kebangsaan'] ?></b></h3>
+              <img src="<?= base_url('assets/img/profile/') . $users['foto'] ?>" alt="foto_profile" height="70px" width="50px">
+              <h5><?= $users['full_name'] ?><br><b><?= $users['kebangsaan'] ?></b></h5>
             </div>
           </td>
         </tr>
@@ -131,7 +136,9 @@
     </div>
   </div>
   <script type="text/javascript">
-    window.print();
+    function printContent() {
+      window.print()
+    }
   </script>
 </body>
 

@@ -199,6 +199,7 @@ class Auth extends CI_Controller
           echo 'false';
         }
       }
+
       // cek jika ada suratk
       $upload_img = $_FILES['suratk']['name'];
 
@@ -291,6 +292,36 @@ class Auth extends CI_Controller
   //     die;
   //   }
   // }
+
+  public function forgotpassword()
+  {
+    $this->form_validation->set_rules('email', 'Email', 'required|trim');
+    $this->form_validation->set_rules('new_password1', 'New Password', 'required|trim|min_length[8]|matches[new_password2]');
+    $this->form_validation->set_rules('new_password2', 'Confrim New Password', 'required|trim|min_length[8]|matches[new_password1]');
+
+    if ($this->form_validation->run() == false) {
+      $data['title'] = 'Forgot Password';
+      $this->load->view('templates/auth_header', $data);
+      $this->load->view('auth/forgotpassword');
+      $this->load->view('templates/auth_footer');
+    } else {
+      $email = $this->input->post('email');
+      $new_password = $this->input->post('new_password1');
+
+      $password_old = $this->db->get_where('users', ['email' => ($email)])->row_array();
+
+      // var_dump($email, $new_password, $password_old);
+      // die;
+
+      $password_hash = password_hash($new_password, PASSWORD_DEFAULT);
+
+      $this->db->set('password', $password_hash);
+      $this->db->where('email', $password_old['email']);
+      $this->db->update('users');
+      $this->session->set_flashdata('message', '<div class="alert alert-success" role="alert">Password Changed!</div>');
+      redirect('auth/index');
+    }
+  }
 
   public function logout()
   {

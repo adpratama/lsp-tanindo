@@ -2,9 +2,6 @@
 defined('BASEPATH') or exit('No direct script access allowed');
 
 include APPPATH . "libraries/qrcode/qrlib.php";
-// include APPPATH . "libraries/Ciqrcode.php";
-// include autoloader
-// include APPPATH . "dompdf/autoload.php";
 
 class DataMember extends CI_Controller
 {
@@ -14,6 +11,7 @@ class DataMember extends CI_Controller
     // is_logged_in();
     $this->load->model('member_model', 'M_member');
   }
+
   public function index()
   {
     $data['title'] = 'Data Member';
