@@ -376,6 +376,36 @@
   <!-- <section> close ============================-->
   <!-- ============================================-->
 
+  <br><br><br>
+  <div class="container">
+    <div class="row flex-center">
+      <div class="col-12">
+        <div class="card shadow h-100 py-5">
+          <div class="card-body text-center">
+            <!-- <h1 class="fw-semi-bold mb-4">The future of &nbsp;<span class="text-success">Farm Investing &nbsp; in Your Hand</h1> -->
+            <h1 class="fw-semi-bold mb-4">Photos of <span class="text-success">KTNA</span> Events and Activities</h1>
+            <div id="gallery">
+              <img src="<?= base_url('assets/img/') ?>foto_for_web_ktna/foto1.jpg">
+              <img src="<?= base_url('assets/img/') ?>foto_for_web_ktna/foto2.jpg">
+              <img src="<?= base_url('assets/img/') ?>foto_for_web_ktna/foto3.jpg">
+              <!-- <img src="<?= base_url('assets/img/') ?>foto_for_web_ktna/foto4.jpg"> -->
+              <img src="<?= base_url('assets/img/') ?>foto_for_web_ktna/foto5.jpg">
+              <!-- <img src="<?= base_url('assets/img/') ?>foto_for_web_ktna/foto6.jpg"> -->
+              <img src="<?= base_url('assets/img/') ?>foto_for_web_ktna/foto7.jpg">
+              <!-- <img src="<?= base_url('assets/img/') ?>foto_for_web_ktna/foto8.jpg"> -->
+              <img src="<?= base_url('assets/img/') ?>foto_for_web_ktna/foto9.jpg">
+              <img src="<?= base_url('assets/img/') ?>foto_for_web_ktna/foto10.jpg">
+              <img src="<?= base_url('assets/img/') ?>foto_for_web_ktna/foto11.jpg">
+              <img src="<?= base_url('assets/img/') ?>foto_for_web_ktna/foto12.jpg">
+              <img src="<?= base_url('assets/img/') ?>foto_for_web_ktna/foto13.jpg">
+              <img src="<?= base_url('assets/img/') ?>foto_for_web_ktna/foto14.jpg">
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
   <section class="py-5" id="partners">
     <div class="container">
       <div class="row text-center">
