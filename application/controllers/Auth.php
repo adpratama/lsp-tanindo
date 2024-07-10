@@ -320,9 +320,9 @@ class Auth extends CI_Controller
     $mail->Body = "Dear, testing saya mau makan nasi goreng plus telor segunung";
 
     if ($mail->send()) {
-      echo "berhasil terkirim";
+      echo "<br>Berhasil Terkirim";
     } else {
-      echo "gagal terkirim";
+      echo "<br>Gagal Terkirim";
     }
   }
 

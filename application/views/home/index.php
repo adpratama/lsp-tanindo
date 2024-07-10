@@ -364,7 +364,7 @@
           <div class="card-body text-center">
             <h1 class="fw-semi-bold mb-4">The future of &nbsp;<span class="text-success">Farm Investing</span> &nbsp; in Your Hand</h1>
             <video width="800" controls autoplay>
-              <source src="<?= base_url('assets/video/') ?>vidio_for_web_ktna.mp4" type="video/mp4">
+              <source src="<?= base_url('assets/video/') ?>videoktna.mp4" type="video/mp4">
               Your browser does not support HTML video.
             </video>
           </div>

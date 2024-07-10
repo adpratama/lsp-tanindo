@@ -60,7 +60,7 @@
 
                   </li>
                   <li class="mb-3">
-                    <a href="admin@lsptanindo.com" target="_blank"><i class="bi bi-envelope"></i>&nbsp;admin@lsptanindo.com</a>
+                    <a href="mailto:admin@lsptanindo.com " target="_blank"><i class="bi bi-envelope"></i>&nbsp;admin@lsptanindo.com</a>
 
                   </li>
                 </ul>
