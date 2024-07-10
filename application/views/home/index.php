@@ -164,6 +164,7 @@
           </div>
         </div>
       </div>
+
       <div class="row">
         <div class="col-lg-9 mx-auto text-center mb-3">
           <h5 class="fw-bold fs-3 fs-lg-5 lh-sm mb-3">
@@ -352,6 +353,28 @@
       </div>
     </div>
   </section>
+
+  <!-- ============================================-->
+  <!-- <section> begin ============================-->
+  <!-- <section class="z-index-1 cta"> -->
+  <div class="container">
+    <div class="row flex-center">
+      <div class="col-12">
+        <div class="card shadow h-100 py-5">
+          <div class="card-body text-center">
+            <h1 class="fw-semi-bold mb-4">The future of &nbsp;<span class="text-success">Farm Investing</span> &nbsp; in Your Hand</h1>
+            <video width="800" controls autoplay>
+              <source src="<?= base_url('assets/video/') ?>vidio_for_web_ktna.mp4" type="video/mp4">
+              Your browser does not support HTML video.
+            </video>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!-- </section> -->
+  <!-- <section> close ============================-->
+  <!-- ============================================-->
 
   <section class="py-5" id="partners">
     <div class="container">

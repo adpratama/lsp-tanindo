@@ -74,7 +74,8 @@
               <div class="form-group row">
                 <label for="staticFUll_name" class="col-sm-3 col-form-label">Alamat</label>
                 <div class="col-sm-8">
-                  <input type="text" readonly class="form-control-plaintext" id="full_name" value="<?= $user['alamat'] ?>">
+                  <textarea name="alamat" id="alamat" class="form-control-plaintext" readonly><?= $user['alamat'] ?></textarea>
+                  <!-- <input type="text" readonly class="form-control-plaintext" id="full_name" value="<?= $user['alamat'] ?>"> -->
                 </div>
               </div>
               <div class="form-group row">

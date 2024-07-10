@@ -14,7 +14,7 @@
 
   <style>
     @page {
-      size: 33.85in 21.25in;
+      size: 3.370in 2.125in;
       margin: none;
       padding: none;
     }
@@ -25,15 +25,12 @@
 
     .page {
       margin: none;
-      /* padding: none; */
     }
 
     .lembar1 {
       background-image: url("<?= base_url('assets/img/') ?>kartu/front.png");
-      /* background-image: url("<?= base_url('assets/img/') ?>kartu/sertifikat_depan.png"); */
       background-size: cover;
       background-repeat: no-repeat;
-      /* background-repeat: no-repeat; */
       padding: 0;
       margin: none;
     }
@@ -122,13 +119,13 @@
           <td class="bagian_kiri">
             <div class="qrcode">
               <img src="<?= base_url('assets/img/kartu/') . $gambar_name ?>" alt="QrCode" height="60px" width="60px"><br>
-              <h5><?= $users['nik'] ?><br><b><?= $users['alamat'] ?></b></h5>
+              <h6><?= $users['nik'] ?><br><b><?= $users['alamat'] ?></b></h6>
             </div>
           </td>
           <td class="bagian_kanan">
             <div class="bawah">
               <img src="<?= base_url('assets/img/profile/') . $users['foto'] ?>" alt="foto_profile" height="70px" width="50px">
-              <h5><?= $users['full_name'] ?><br><b><?= $users['kebangsaan'] ?></b></h5>
+              <h6><?= $users['full_name'] ?><br><b><?= $users['kebangsaan'] ?></b></h6>
             </div>
           </td>
         </tr>

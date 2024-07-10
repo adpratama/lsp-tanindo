@@ -1,12 +1,13 @@
 <?php
 defined('BASEPATH') or exit('No direct script access allowed');
 
+
 class Auth extends CI_Controller
 {
   public function __construct()
   {
     parent::__construct();
-    $this->load->library('form_validation');
+    $this->load->library(array('form_validation', 'mailer'));
     // 
   }
 
@@ -104,8 +105,6 @@ class Auth extends CI_Controller
     $this->form_validation->set_rules('jabatan', 'Jabatan', 'required|trim');
     $this->form_validation->set_rules('alamat_kantor', 'Alamat_Kantor', 'required|trim');
     $this->form_validation->set_rules('no_telp_kantor', 'No_telp_kantor', 'required|trim');
-    $this->form_validation->set_rules('foto', 'Foto', 'required');
-    $this->form_validation->set_rules('kartuk', 'Kartu_Keluarga', 'required');
 
     if ($this->form_validation->run() == false) {
       $data['title'] = 'Registration';
@@ -247,15 +246,15 @@ class Auth extends CI_Controller
         'status_member' => $status_member
       );
 
-      $this->db->insert('users', $mydata);
+      // $this->db->insert('users', $mydata);
 
       // kirim email
-      // $this->_sendEmail();
+      $this->send_email($mydata);
 
-      $this->session->set_flashdata('message', '<div class="alert alert-success" role="alert">
-        Data berhasil Tersimpan!! silahkan login
-      </div>');
-      redirect('home');
+      // $this->session->set_flashdata('message', '<div class="alert alert-success" role="alert">
+      //   Data berhasil Tersimpan!! silahkan login
+      // </div>');
+      // redirect('home');
     }
   }
 
@@ -293,33 +292,37 @@ class Auth extends CI_Controller
   //   }
   // }
 
-  public function forgotpassword()
+  public function send_email($mydata)
   {
-    $this->form_validation->set_rules('email', 'Email', 'required|trim');
-    $this->form_validation->set_rules('new_password1', 'New Password', 'required|trim|min_length[8]|matches[new_password2]');
-    $this->form_validation->set_rules('new_password2', 'Confrim New Password', 'required|trim|min_length[8]|matches[new_password1]');
+    // var_dump($mydata);
+    // exit;
 
-    if ($this->form_validation->run() == false) {
-      $data['title'] = 'Forgot Password';
-      $this->load->view('templates/auth_header', $data);
-      $this->load->view('auth/forgotpassword');
-      $this->load->view('templates/auth_footer');
+    $bodyContent = '';
+    foreach ($mydata as $key => $value) {
+      $bodyContent .= ucfirst(str_replace('_', ' ', $key)) . ': ' . $value . '<br>';
+    }
+
+    $email = "mukhbit97@gmail.com";
+
+    $mail = $this->mailer->load();
+    $mail->isSMTP();
+    $mail->Host = 'srv42.niagahoster.com';
+    $mail->SMTPAuth = true;
+    $mail->Username = 'viona.noa@bdlwarehouse.com';
+    $mail->Password = 'bdl123!@#';
+    $mail->SMTPSecure = 'ssl';
+    $mail->Port       = 465;
+    $mail->setFrom("viona.noa@bdlwarehouse.com", "Mlejit");
+    $mail->addAddress($email);
+    $mail->isHTML(true);
+    $mail->Subject = "Testing";
+    // $mail->Body    = "Dear, " . $value['username'] . ".<br> Thank you for registering with us!<br><br>" . $bodyContent;
+    $mail->Body = "Dear, testing saya mau makan nasi goreng plus telor segunung";
+
+    if ($mail->send()) {
+      echo "berhasil terkirim";
     } else {
-      $email = $this->input->post('email');
-      $new_password = $this->input->post('new_password1');
-
-      $password_old = $this->db->get_where('users', ['email' => ($email)])->row_array();
-
-      // var_dump($email, $new_password, $password_old);
-      // die;
-
-      $password_hash = password_hash($new_password, PASSWORD_DEFAULT);
-
-      $this->db->set('password', $password_hash);
-      $this->db->where('email', $password_old['email']);
-      $this->db->update('users');
-      $this->session->set_flashdata('message', '<div class="alert alert-success" role="alert">Password Changed!</div>');
-      redirect('auth/index');
+      echo "gagal terkirim";
     }
   }
 
