@@ -42,25 +42,25 @@
                 </h6>
                 <ul class="list-unstyled mb-md-4 mb-lg-0 text-white">
                   <li class="mb-3">
-                    <a href="https://www.facebook.com/people/Lsp-Tanindo/pfbid02W8kwmYVzTURSvvDKcx9w5nFfmAGScgDGmbPCAy9jm8foV2DTSAZJw3spCCmjNR9pl/?mibextid=ZbWKwL"><i class="bi bi-facebook"></i>&nbsp;Lsp Tanindo</a>
+                    <a href="https://www.facebook.com/people/Lsp-Tanindo/pfbid02W8kwmYVzTURSvvDKcx9w5nFfmAGScgDGmbPCAy9jm8foV2DTSAZJw3spCCmjNR9pl/?mibextid=ZbWKwL" target="_blank"><i class="bi bi-facebook"></i>&nbsp;Lsp Tanindo</a>
                   </li>
                   <li class="mb-3">
-                    <a href="https://www.instagram.com/lsp_tanindo/?igsh=MWxia3lwamphc3A3Ng%3D%3D"><i class="bi bi-instagram"></i>&nbsp;@lsp_tanindo</a>
+                    <a href="https://www.instagram.com/lsp_tanindo/?igsh=MWxia3lwamphc3A3Ng%3D%3D" target="_blank"><i class="bi bi-instagram"></i>&nbsp;@lsp_tanindo</a>
 
                   </li>
                   <li class="mb-3">
-                    <a href="https://www.tiktok.com/@lsp.tanindo?_t=8nW0gaTpVce&_r=1"><i class="bi bi-tiktok"></i>&nbsp;@lsp.tanindo</a>
+                    <a href="https://www.tiktok.com/@lsp.tanindo?_t=8nW0gaTpVce&_r=1" target="_blank"><i class="bi bi-tiktok"></i>&nbsp;@lsp.tanindo</a>
 
                   </li>
                   <li class="mb-3">
-                    <a href="https://www.youtube.com/@lsptanindo"><i class="bi bi-youtube"></i>&nbsp;LSP Tanindo</a>
+                    <a href="https://www.youtube.com/@lsptanindo" target="_blank"><i class="bi bi-youtube"></i>&nbsp;LSP Tanindo</a>
                   </li>
                   <li class="mb-3">
-                    <a href="https://x.com/LspTanindo?t=IOgV_eo43JORkSGwH9cQKQ&s=09"><i class="bi bi-twitter-x"></i>&nbsp;@LspTanindo</a>
+                    <a href="https://x.com/LspTanindo?t=IOgV_eo43JORkSGwH9cQKQ&s=09" target="_blank"><i class="bi bi-twitter-x"></i>&nbsp;@LspTanindo</a>
 
                   </li>
                   <li class="mb-3">
-                    <a href="admin@lsptanindo.com"><i class="bi bi-envelope"></i>&nbsp;admin@lsptanindo.com</a>
+                    <a href="admin@lsptanindo.com" target="_blank"><i class="bi bi-envelope"></i>&nbsp;admin@lsptanindo.com</a>
 
                   </li>
                 </ul>
