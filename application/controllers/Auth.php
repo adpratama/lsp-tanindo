@@ -246,15 +246,15 @@ class Auth extends CI_Controller
         'status_member' => $status_member
       );
 
-      // $this->db->insert('users', $mydata);
+      $this->db->insert('users', $mydata);
 
       // kirim email
       $this->send_email($mydata);
 
-      // $this->session->set_flashdata('message', '<div class="alert alert-success" role="alert">
-      //   Data berhasil Tersimpan!! silahkan login
-      // </div>');
-      // redirect('home');
+      $this->session->set_flashdata('message', '<div class="alert alert-success" role="alert">
+        Data berhasil Tersimpan!! silahkan login
+      </div>');
+      redirect('home');
     }
   }
 
