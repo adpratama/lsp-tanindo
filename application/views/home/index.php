@@ -367,7 +367,7 @@
               <source src="<?= base_url('assets/video/') ?>Vidio_ktna_v2.webm" type="video/mp4">
               Your browser does not support HTML video.
             </video> -->
-            <iframe src="<?= base_url('assets/video/') ?>Vidio_ktna_v2.webm" width="800" height="400" title="Vidio KTNA"></iframe>
+            <iframe src="https://www.youtube.com/watch?v=dgvYVEB5Xs8" width="800" height="400" title="Vidio KTNA"></iframe>
           </div>
         </div>
       </div>

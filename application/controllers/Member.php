@@ -3,7 +3,7 @@ defined('BASEPATH') or exit('No direct script access allowed');
 
 include APPPATH . "libraries/qrcode/qrlib.php";
 
-class DataMember extends CI_Controller
+class Member extends CI_Controller
 {
   public function __construct()
   {
@@ -24,7 +24,7 @@ class DataMember extends CI_Controller
     $this->load->view('templates/header', $data);
     $this->load->view('templates/sidebar', $data);
     $this->load->view('templates/topbar', $data);
-    $this->load->view('datamember/index', $data);
+    $this->load->view('member/index', $data);
     $this->load->view('templates/footer');
   }
 
@@ -58,14 +58,14 @@ class DataMember extends CI_Controller
       'gambar_logo' => $gambar_logo
     ];
 
-    // $this->load->view('datamember/test', $data, true);
+    // $this->load->view('member/test', $data, true);
 
     $this->load->library('pdfgenerator');
     $data['title'] = "KTNA CARD";
     $file_pdf = $data['title'];
     $paper = 'A5'; //15x25mm.
     $orientation = "landscape";
-    $html = $this->load->view('datamember/kartuktna', $data, true);
+    $html = $this->load->view('member/kartuktna', $data, true);
     $this->pdfgenerator->generate($html, $file_pdf, $paper, $orientation);
   }
 }
