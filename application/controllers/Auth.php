@@ -53,7 +53,7 @@ class Auth extends CI_Controller
 
         // redirect('admin');
         if ($user['status_member'] == 1) {
-          redirect('datamember');
+          redirect('member');
         } else {
           redirect('user');
         }
