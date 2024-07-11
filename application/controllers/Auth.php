@@ -1,6 +1,13 @@
 <?php
-defined('BASEPATH') or exit('No direct script access allowed');
 
+
+defined('BASEPATH') or exit('No direct script access allowed');
+// require 'libraries/PHPMailer/src/Exception.php';
+// require 'libraries/PHPMailer/src/PHPMailer.php';
+// require 'libraries/PHPMailer/src/SMTP.php';
+use PHPMailer\PHPMailer\PHPMailer;
+use PHPMailer\PHPMailer\SMTP;
+use PHPMailer\PHPMailer\Exception;
 
 class Auth extends CI_Controller
 {
@@ -246,10 +253,10 @@ class Auth extends CI_Controller
         'status_member' => $status_member
       );
 
-      $this->db->insert('users', $mydata);
-
       // kirim email
       $this->send_email($mydata);
+
+      $this->db->insert('users', $mydata);
 
       $this->session->set_flashdata('message', '<div class="alert alert-success" role="alert">
         Data berhasil Tersimpan!! silahkan login
@@ -258,71 +265,46 @@ class Auth extends CI_Controller
     }
   }
 
-  // private function _sendEmail()
-  // {
-  //   $config = [
-  //     'protocol'  => 'smtp',
-  //     'smtp_host' => 'ssl://smtp.googlemail.com',
-  //     'smtp_user' => 'viona.noa@bdlwarehouse.com',
-  //     'smtp_pass' => 'bdl123!@#',
-  //     'smtp_port' => 465,
-  //     'mailtype'  => 'html',
-  //     'charset'   => 'utf-8',
-  //     'newline'   => "\r\n"
-
-  //   ];
-
-  //   $this->load->library('email', $config);
-
-  //   // $this->email->from('viona.noa@bdlwarehouse.com', 'Bandes Training Center');
-  //   $this->email->from('viona.noa@bdlwarehouse.com', 'Bandes Training Center');
-  //   $this->email->to('mukhbit97@gmail.com');
-  //   // $this->email->cc('adm.bec@harints.com');
-  //   // $this->email->cc('mukhbit97@gmail.com');
-  //   // $this->email->bcc('them@their-example.com');
-
-  //   $this->email->subject('Email Test');
-  //   $this->email->message('Testing the email class.');
-
-  //   if ($this->email->send()) {
-  //     return true;
-  //   } else {
-  //     echo $this->email->print_debugger();
-  //     die;
-  //   }
-  // }
-
   public function send_email($mydata)
   {
-    // var_dump($mydata);
-    // exit;
+    include APPPATH . 'libraries/smtpmail/librarysmtp/autoload.php';
 
-    $bodyContent = '';
-    foreach ($mydata as $key => $value) {
-      $bodyContent .= ucfirst(str_replace('_', ' ', $key)) . ': ' . $value . '<br>';
-    }
+    $mail = new PHPMailer(true);
 
-    $email = "mukhbit97@gmail.com";
+    try {
+      //Server settings
+      $mail->SMTPDebug = SMTP::DEBUG_SERVER;  //Enable verbose debug output
+      $mail->isSMTP();   //Send using SMTP
+      $mail->Host       = 'mail.lsptanindo.com'; //hostname/domain yang dipergunakan untuk setting smtp
+      $mail->SMTPAuth   = true;  //Enable SMTP authentication
+      // $mail->Username   = 'mukhbit97@gmail.com'; //SMTP username
+      // $mail->Password   = 'eoqa xxwn sufg nijt';   //SMTP password
+      $mail->Username   = 'admin@lsptanindo.com'; //SMTP username
+      $mail->Password   = 'lsp123!@#';   //SMTP password
+      $mail->SMTPSecure = PHPMailer::ENCRYPTION_SMTPS;   //Enable implicit TLS encryption
+      $mail->Port       = 465;   //TCP port to connect to; use 587 if you have set `SMTPSecure = PHPMailer::ENCRYPTION_STARTTLS`
 
-    $mail = $this->mailer->load();
-    $mail->isSMTP();
-    $mail->Host = 'srv42.niagahoster.com';
-    $mail->SMTPAuth = true;
-    $mail->Username = 'viona.noa@bdlwarehouse.com';
-    $mail->Password = 'bdl123!@#';
-    $mail->SMTPSecure = 'ssl';
-    $mail->Port       = 465;
-    $mail->setFrom("viona.noa@bdlwarehouse.com", "Mlejit");
-    $mail->addAddress($email);
-    $mail->isHTML(true);
-    $mail->Subject = "Testing";
-    // $mail->Body    = "Dear, " . $value['username'] . ".<br> Thank you for registering with us!<br><br>" . $bodyContent;
-    $mail->Body = "Dear, testing saya mau makan nasi goreng plus telor segunung";
+      //Recipients
+      $mail->setFrom('admin@lsptanindo.com', 'LSP Tanindo');
+      $mail->addAddress($mydata['email'], $mydata['full_name']);     //email tujuan
+      // $mail->addReplyTo('admin@lsptanindo.com', 'Information'); //email tujuan add reply (bila tidak dibutuhkan bisa diberi pagar)
+      $mail->addCC('admin@lsptanindo.com'); // email cc (bila tidak dibutuhkan bisa diberi pagar)
+      $mail->addBCC('mukhbit97@gmail.com'); // email bcc (bila tidak dibutuhkan bisa diberi pagar)
 
-    if ($mail->send()) {
-      echo "<br>Berhasil Terkirim";
-    } else {
-      echo "<br>Gagal Terkirim";
+      //Attachments
+      #$mail->addAttachment('/var/tmp/file.tar.gz');   //Add attachments
+      #$mail->addAttachment('/tmp/image.jpg', 'new.jpg');  //Optional name
+
+      //Content
+      $mail->isHTML(true);   //Set email format to HTML
+      $mail->Subject = 'Notifikasi Registrasi Akun Baru';
+      $mail->Body    = 'Selamat Kepada ' . $mydata['username'] . ' Telah berhasil membuat akun di Web site LSP Tanindo silahkan Coba Login Ke web site Kami Untuk Melengkapi data yang belum ada';
+      $mail->AltBody = 'This is the body in plain text for non-HTML mail clients';
+
+      $mail->send();
+      echo 'Message has been sent';
+    } catch (Exception $e) {
+      echo "Message could not be sent. Mailer Error: {$mail->ErrorInfo}";
     }
   }
 

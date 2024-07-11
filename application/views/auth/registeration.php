@@ -50,12 +50,12 @@
                 </div>
                 <div class="form-group row">
                   <div class="col-sm-6 mb-3 mb-sm-0">
-                    <!-- <select name="jenkel" id="jenkel" class="form-control form-control-user">
+                    <select name="jenkel" id="jenkel" class="form-control">
                       <option value="">-- PILIH Jenis Kelamin --</option>
                       <option value="pria">Pria</option>
                       <option value="wanita">Wanita</option>
-                    </select> -->
-                    <input type="text" class="form-control form-control-user" id="jenkel" name="jenkel" placeholder="Jenis Kelamin" value="<?= set_value('jenkel') ?>">
+                    </select>
+                    <!-- <input type="text" class="form-control form-control-user" id="jenkel" name="jenkel" placeholder="Jenis Kelamin" value="<?= set_value('jenkel') ?>"> -->
                   </div>
                   <div class="col-sm-6">
                     <input type="text" class="form-control form-control-user" id="kebangsaan" name="kebangsaan" placeholder="Kebangsaan" value="<?= set_value('kebangsaan') ?>">

@@ -363,10 +363,11 @@
         <div class="card shadow h-100 py-5">
           <div class="card-body text-center">
             <h1 class="fw-semi-bold mb-4">The future of &nbsp;<span class="text-success">Farm Investing</span> &nbsp; in Your Hand</h1>
-            <video width="800" controls>
+            <!-- <video width="800" controls>
               <source src="<?= base_url('assets/video/') ?>Vidio_ktna_v2.webm" type="video/mp4">
               Your browser does not support HTML video.
-            </video>
+            </video> -->
+            <iframe src="<?= base_url('assets/video/') ?>Vidio_ktna_v2.webm" width="800" height="400" title="Vidio KTNA"></iframe>
           </div>
         </div>
       </div>
