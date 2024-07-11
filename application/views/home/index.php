@@ -368,7 +368,8 @@
               Your browser does not support HTML video.
             </video> -->
             <div class="embed-responsive embed-responsive-16by9">
-              <iframe class="embed-responsive-item" src="https://www.youtube.com/watch?v=dgvYVEB5Xs8" allowfullscreen></iframe>
+              <!-- <iframe class="embed-responsive-item" src="https://www.youtube.com/watch?v=dgvYVEB5Xs8" allowfullscreen></iframe> -->
+              <a href="https://www.youtube.com/watch?v=dgvYVEB5Xs8" allowfullscreen class="embed-responsive-item"></a>
             </div>
           </div>
         </div>
