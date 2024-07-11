@@ -5,7 +5,7 @@ class Member_Model extends CI_Model
 {
   public function get_datamember()
   {
-    $query = "SELECT * FROM `users` WHERE `uid` >= 10";
+    $query = "SELECT * FROM `users` WHERE `uid` >= 10 ORDER BY uid DESC";
     return $this->db->query($query)->result_array();
     // $this->db->select('*');
     // $this->db->get('users');
