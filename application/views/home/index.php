@@ -367,10 +367,10 @@
               <source src="https://www.youtube.com/watch?v=dgvYVEB5Xs8" type="video/mp4">
               Your browser does not support HTML video.
             </video> -->
-            <div class="embed-responsive embed-responsive-16by9">
-              <!-- <iframe class="embed-responsive-item" src="https://www.youtube.com/watch?v=dgvYVEB5Xs8" allowfullscreen></iframe> -->
-              <a href="https://www.youtube.com/watch?v=dgvYVEB5Xs8" allowfullscreen class="embed-responsive-item"></a>
-            </div>
+            <!-- <div controls width="800" height="400"> -->
+            <iframe src="<?= base_url('assets/video/') ?>Vidio_ktna_v2.webm" width="800" height="400"></iframe>
+            <!-- <a href="https://www.youtube.com/watch?v=dgvYVEB5Xs8" allowfullscreen class="embed-responsive-item"></a> -->
+            <!-- </div> -->
           </div>
         </div>
       </div>
