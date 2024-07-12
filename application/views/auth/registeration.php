@@ -72,7 +72,7 @@
                 <div class="form-group">
                   <input type="text" class="form-control form-control-user" id="pendidikan" name="pendidikan" placeholder="Pendidikan Terakhir - Jurusan / Gelar" value="<?= set_value('pendidikan') ?>">
                 </div>
-                <div class="form-group row">
+                <!-- <div class="form-group row">
                   <div class="col-sm-6 mb-3 mb-sm-0">
                     <input type="text" class="form-control form-control-user" id="nama_perusahaan" name="nama_perusahaan" placeholder="Nama Perusahaan" value="<?= set_value('nama_perusahaan') ?>">
                   </div>
@@ -85,7 +85,7 @@
                 </div>
                 <div class="form-group">
                   <input type="text" class="form-control form-control-user" id="no_telp_kantor" name="no_telp_kantor" placeholder="Nomor Telpon Kantor" value="<?= set_value('no_telp_kantor') ?>">
-                </div>
+                </div> -->
                 <div class="form-group">
                   <label class="form-label">Upload Foto</label>
                   <input type="file" name="foto" id="img-profile" class="form-control">

@@ -108,10 +108,10 @@ class Auth extends CI_Controller
     $this->form_validation->set_rules('tempat_lahir', 'Tempat_lahir', 'required|trim');
     $this->form_validation->set_rules('tanggal_lahir', 'Tanggal_Lahir', 'required|trim');
     $this->form_validation->set_rules('pendidikan', 'Pendidikan', 'required|trim');
-    $this->form_validation->set_rules('nama_perusahaan', 'Nama_Perusahaan', 'required|trim');
-    $this->form_validation->set_rules('jabatan', 'Jabatan', 'required|trim');
-    $this->form_validation->set_rules('alamat_kantor', 'Alamat_Kantor', 'required|trim');
-    $this->form_validation->set_rules('no_telp_kantor', 'No_telp_kantor', 'required|trim');
+    // $this->form_validation->set_rules('nama_perusahaan', 'Nama_Perusahaan', 'required|trim');
+    // $this->form_validation->set_rules('jabatan', 'Jabatan', 'required|trim');
+    // $this->form_validation->set_rules('alamat_kantor', 'Alamat_Kantor', 'required|trim');
+    // $this->form_validation->set_rules('no_telp_kantor', 'No_telp_kantor', 'required|trim');
 
     if ($this->form_validation->run() == false) {
       $data['title'] = 'Registration';
