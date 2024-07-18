@@ -2,9 +2,7 @@
 
 
 defined('BASEPATH') or exit('No direct script access allowed');
-// require 'libraries/PHPMailer/src/Exception.php';
-// require 'libraries/PHPMailer/src/PHPMailer.php';
-// require 'libraries/PHPMailer/src/SMTP.php';
+
 use PHPMailer\PHPMailer\PHPMailer;
 use PHPMailer\PHPMailer\SMTP;
 use PHPMailer\PHPMailer\Exception;
@@ -131,10 +129,10 @@ class Auth extends CI_Controller
       $tempat_lahir = $this->input->post('tempat_lahir');
       $tanggal_lahir = $this->input->post('tanggal_lahir');
       $pendidikan = $this->input->post('pendidikan');
-      $nama_perusahaan = $this->input->post('nama_perusahaan');
-      $jabatan = $this->input->post('jabatan');
-      $alamat_kantor = $this->input->post('alamat_kantor');
-      $no_telp_kantor = $this->input->post('no_telp_kantor');
+      // $nama_perusahaan = $this->input->post('nama_perusahaan');
+      // $jabatan = $this->input->post('jabatan');
+      // $alamat_kantor = $this->input->post('alamat_kantor');
+      // $no_telp_kantor = $this->input->post('no_telp_kantor');
       $status_member = 2;
 
       // cek jika ada foto
@@ -242,10 +240,10 @@ class Auth extends CI_Controller
         'tempat_lahir' => $tempat_lahir,
         'tanggal_lahir' => $tanggal_lahir,
         'pendidikan_terakhir' => $pendidikan,
-        'nama_perusahaan' => $nama_perusahaan,
-        'jabatan' => $jabatan,
-        'alamat_kantor' => $alamat_kantor,
-        'no_telp_kantor' => $no_telp_kantor,
+        // 'nama_perusahaan' => $nama_perusahaan,
+        // 'jabatan' => $jabatan,
+        // 'alamat_kantor' => $alamat_kantor,
+        // 'no_telp_kantor' => $no_telp_kantor,
         'foto' => $data1,
         'kartu_keluarga' => $data2,
         'sertif' => $data3,

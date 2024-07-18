@@ -48,7 +48,7 @@ class Member extends CI_Controller
     // perintah untuk membuat qrcode dan menyimpannya dalam folder temp
     // $qr = QRcode::png($isi, $penyimpanan . "qrcodeku.png", QR_ECLEVEL_H);
     $qr = QRcode::png($isi, $file_path, 'L');
-    $gambar_logo = 'lsp_tani_logo.jpg';
+    $gambar_logo = 'ktna.png';
 
     $data = [
       'users' => $this->db->where('nik', $nik)->get('users')->row_array(),
@@ -61,11 +61,11 @@ class Member extends CI_Controller
     // $this->load->view('member/test', $data, true);
 
     $this->load->library('pdfgenerator');
-    $data['title'] = "KTNA CARD";
+    $data['title'] = "TANINDO CARD";
     $file_pdf = $data['title'];
     $paper = 'A5'; //15x25mm.
     $orientation = "landscape";
-    $html = $this->load->view('member/kartuktna', $data, true);
+    $html = $this->load->view('member/kartutanindo', $data, true);
     $this->pdfgenerator->generate($html, $file_pdf, $paper, $orientation);
   }
 }

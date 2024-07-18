@@ -31,8 +31,24 @@ class Home extends CI_Controller
     // exit;
 
     $data['title'] = 'Biodata';
-    // $this->load->view('templates/v_header', $data);
+    $this->load->view('templates/v_header', $data);
     $this->load->view('home/biodata', $data);
-    // $this->load->view('templates/v_footer');
+    $this->load->view('templates/v_footer');
+  }
+
+  public function regisktna()
+  {
+    $data['title'] = 'Register KTNA';
+    $this->load->view('templates/auth_header', $data);
+    $this->load->view('home/regisktna');
+    $this->load->view('templates/auth_footer');
+  }
+
+  public function biodataktna()
+  {
+    $data['title'] = 'Biodata Member';
+    $this->load->view('templates/header_ktna', $data);
+    $this->load->view('home/biodata_ktna');
+    $this->load->view('templates/footer_ktna');
   }
 }

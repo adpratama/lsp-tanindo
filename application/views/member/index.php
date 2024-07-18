@@ -74,6 +74,7 @@
       </div>
     </div>
   </div>
+  <!-- DataTales Example End -->
 
 </div>
 <!-- /.container-fluid -->

@@ -96,17 +96,14 @@ $db['default'] = array(
 );
 // $db['default'] = array(
 // 	'dsn'	=> '',
-// 	// <<<<<<< HEAD
 // 	'hostname' => 'localhost',
 // 	'username' => 'root',
 // 	'password' => '',
 // 	'database' => 'tanindo',
-// 	// =======
 // 	'hostname' => '103.163.138.165',
 // 	'username' => 'lsptanin_admin',
 // 	'password' => 'adminlsptanindo',
 // 	'database' => 'lsptanin_tanindo',
-// 	// >>>>>>> ec6a32835f8a7db16bccc4784a95ed518ad73768
 // 	'dbdriver' => 'mysqli',
 // 	'dbprefix' => '',
 // 	'pconnect' => FALSE,
