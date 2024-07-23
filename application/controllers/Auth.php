@@ -227,6 +227,29 @@ class Auth extends CI_Controller
         }
       }
 
+      // cek jika ada ijasah
+      $upload_img = $_FILES['ijasah']['name'];
+
+      if ($upload_img) {
+        $config['allowed_types'] = 'jpeg|jpg|png|pdf';
+        $config['max_size']     = '2048';
+        $config['remove_spaces'] = TRUE;
+        $config['upload_path'] = './assets/img/profile';
+
+        $this->load->library('upload', $config);
+
+        if ($this->upload->do_upload('ijasah')) {
+          $ijasah_img = $this->upload->data('file_name');
+          $data5 = $ijasah_img;
+
+          echo 'true';
+        } else {
+          echo $this->upload->display_errors();
+
+          echo 'false';
+        }
+      }
+
       $mydata = array(
         'nik' => $nik,
         'username' => $username,
@@ -248,6 +271,7 @@ class Auth extends CI_Controller
         'kartu_keluarga' => $data2,
         'sertif' => $data3,
         'surat_keterangan' => $data4,
+        'ijasah' => $data5,
         'status_member' => $status_member
       );
 
@@ -270,6 +294,7 @@ class Auth extends CI_Controller
     $mail = new PHPMailer(true);
 
     try {
+
       //Server settings
       $mail->SMTPDebug = SMTP::DEBUG_SERVER;  //Enable verbose debug output
       $mail->isSMTP();   //Send using SMTP
@@ -287,16 +312,14 @@ class Auth extends CI_Controller
       $mail->addAddress($mydata['email'], $mydata['full_name']);     //email tujuan
       // $mail->addReplyTo('admin@lsptanindo.com', 'Information'); //email tujuan add reply (bila tidak dibutuhkan bisa diberi pagar)
       $mail->addCC('admin@lsptanindo.com'); // email cc (bila tidak dibutuhkan bisa diberi pagar)
-      $mail->addBCC('mukhbit97@gmail.com'); // email bcc (bila tidak dibutuhkan bisa diberi pagar)
-
-      //Attachments
-      #$mail->addAttachment('/var/tmp/file.tar.gz');   //Add attachments
-      #$mail->addAttachment('/tmp/image.jpg', 'new.jpg');  //Optional name
+      // $mail->addBCC('mukhbit97@gmail.com'); // email bcc (bila tidak dibutuhkan bisa diberi pagar)
 
       //Content
       $mail->isHTML(true);   //Set email format to HTML
       $mail->Subject = 'Notifikasi Registrasi Akun Baru';
       $mail->Body    = 'Selamat Kepada ' . $mydata['username'] . ' Telah berhasil membuat akun di Web site LSP Tanindo silahkan Coba Login Ke web site Kami Untuk Melengkapi data yang belum ada';
+      $mail->addAttachment('assets/document/Formulir_Anggota.docx');
+      $mail->addAttachment('assets/document/Assesment_Mandiri.docx');
       $mail->AltBody = 'This is the body in plain text for non-HTML mail clients';
 
       $mail->send();

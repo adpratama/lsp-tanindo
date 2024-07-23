@@ -7,9 +7,6 @@ class Member_Model extends CI_Model
   {
     $query = "SELECT * FROM `users` WHERE `uid` >= 10 ORDER BY uid DESC";
     return $this->db->query($query)->result_array();
-    // $this->db->select('*');
-    // $this->db->get('users');
-    // $this->db->where('uid >=', 10);
   }
 
   public function data($number, $offset)
@@ -26,5 +23,11 @@ class Member_Model extends CI_Model
 
     $query = $this->db->get('users', $sampai, $dari);
     return $query->result_array();
+  }
+
+  public function get_data_ktna()
+  {
+    $query = "SELECT * FROM `profil` ORDER BY uid DESC";
+    return $this->db->query($query)->result_array();
   }
 }

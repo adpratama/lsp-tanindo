@@ -87,7 +87,7 @@
                   <input type="text" class="form-control form-control-user" id="no_telp_kantor" name="no_telp_kantor" placeholder="Nomor Telpon Kantor" value="<?= set_value('no_telp_kantor') ?>">
                 </div> -->
                 <div class="form-group">
-                  <label class="form-label">Upload Foto</label>
+                  <label class="form-label">Upload Foto 3 x 4</label>
                   <input type="file" name="foto" id="img-profile" class="form-control">
                 </div>
                 <div class="form-group">
@@ -95,8 +95,12 @@
                   <input type="file" name="sertif" id="img-profile" class="form-control">
                 </div>
                 <div class="form-group">
-                  <label class="form-label">Upload Kartu Keluarga</label>
+                  <label class="form-label">Upload Ktp</label>
                   <input type="file" name="kartuk" id="img-profile" class="form-control">
+                </div>
+                <div class="form-group">
+                  <label class="form-label">Upload Ijazah</label>
+                  <input type="file" name="ijasah" id="img-profile" class="form-control">
                 </div>
                 <div class="form-group">
                   <label class="form-label">Upload Surat Keterangan</label>

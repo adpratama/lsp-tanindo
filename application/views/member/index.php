@@ -112,7 +112,7 @@
               <input type="text" class="form-control" id="icon" name="icon" value="<?= $u['pendidikan_terakhir'] ?>">
             </div>
             <hr>
-            <h4><b>Riwayat Pekerjaan</b></h4>
+            <!-- <h4><b>Riwayat Pekerjaan</b></h4>
             <hr>
             <div class="form-group">
               <input type="text" class="form-control" id="icon" name="icon" value="<?= $u['nama_perusahaan'] ?>">
@@ -123,11 +123,11 @@
             <div class="form-group">
               <input type="text" class="form-control" id="icon" name="icon" value="<?= $u['alamat_kantor'] ?>">
             </div>
-            <hr>
+            <hr> -->
             <h4><b>Berkas</b></h4>
             <hr>
             <div class="form-group">
-              <label for="cname" class='control-label col-sm-2'>Foto </label>
+              <label for="cname" class='control-label col-sm-3'>Foto 3x4</label>
               <Select class="form-control" name="foto">
                 <option value='<?= $u['foto'] ?>' <?php if ($u['foto'] != '') echo "selected"; ?>>Sudah Upload</option>
                 <option value='' <?php if ($u['foto'] == '') echo "selected"; ?>>Belum Upload</option>
@@ -141,7 +141,7 @@
               </Select>
             </div>
             <div class="form-group">
-              <label for="cname" class='control-label col-sm-4'>Kartu Keluarga </label>
+              <label for="cname" class='control-label col-sm-4'>Foto KTP</label>
               <Select class="form-control" name="kartu_keluarga">
                 <option value='<?= $u['kartu_keluarga'] ?>' <?php if ($u['kartu_keluarga'] != '') echo "selected"; ?>>Sudah Upload</option>
                 <option value='' <?php if ($u['kartu_keluarga'] == '') echo "selected"; ?>>Belum Upload</option>

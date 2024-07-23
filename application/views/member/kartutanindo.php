@@ -46,7 +46,7 @@
 
     .kanan {
       padding-bottom: 50px;
-      padding-left: 160px;
+      padding-left: 170px;
     }
 
     .qrcode {
@@ -68,12 +68,12 @@
     }
 
     .bagian_kanan {
-      padding-left: 50px;
+      padding-left: 45px;
       text-align: right;
     }
 
     .bagian_kiri {
-      width: 220px;
+      width: 200px;
     }
   </style>
   <!-- Load paper.css for happy printing -->
@@ -102,12 +102,12 @@
         <tr>
           <td>
             <div class="kiri">
-              <h5><?= $title; ?><br><b>Anggota</b><br><?= $users['tanggal_lahir'] ?></h5>
+              <h5><?= $title; ?><br><b>Ketua Umum</b><br><?= $users['tanggal_lahir'] ?></h5>
             </div>
           </td>
           <td>
             <div class="kanan">
-              <img src="<?= base_url('assets/img/profile/') . $gambar_logo ?>" alt="LogoGambar" align="right" height="60px" width="80px">
+              <img src="<?= base_url('assets/img/profile/') . $gambar_logo ?>" alt="LogoGambar" align="right" height="60px" width="60px">
             </div>
           </td>
         </tr>
@@ -117,13 +117,13 @@
         <tr>
           <td class="bagian_kiri">
             <div class="qrcode">
-              <img src="<?= base_url('assets/img/kartu/') . $gambar_name ?>" alt="QrCode" height="60px" width="60px"><br>
+              <img src="<?= base_url('assets/img/kartu/') . $gambar_name ?>" alt="QrCode" height="60px" width="60px">
               <h6><?= $users['nik'] ?><br><b><?= $users['alamat'] ?></b></h6>
             </div>
           </td>
           <td class="bagian_kanan">
             <div class="bawah">
-              <img src="<?= base_url('assets/img/profile/') . $users['foto'] ?>" alt="foto_profile" height="70px" width="50px">
+              <img src="<?= base_url('assets/img/profile/') . $users['foto'] ?>" alt="foto_profile" height="78px" width="58px">
               <h6><?= $users['full_name'] ?><br><b><?= $users['kebangsaan'] ?></b></h6>
             </div>
           </td>
