@@ -13,7 +13,6 @@
                 <?= $this->session->flashdata('message'); ?>
               </div>
               <form class="user" method="post" enctype="multipart/form-data" action="<?= base_url('auth/insert_data'); ?>">
-
                 <div class="form-group row">
                   <div class="col-sm-6 mb-3 mb-sm-0">
                     <input type="text" class="form-control form-control-user" id="nik" name="nik" placeholder="Nomor Induk Kependudukan" value="<?= set_value('nik') ?>">
@@ -55,7 +54,6 @@
                       <option value="pria">Pria</option>
                       <option value="wanita">Wanita</option>
                     </select>
-                    <!-- <input type="text" class="form-control form-control-user" id="jenkel" name="jenkel" placeholder="Jenis Kelamin" value="<?= set_value('jenkel') ?>"> -->
                   </div>
                   <div class="col-sm-6">
                     <input type="text" class="form-control form-control-user" id="kebangsaan" name="kebangsaan" placeholder="Kebangsaan" value="<?= set_value('kebangsaan') ?>">
@@ -72,20 +70,6 @@
                 <div class="form-group">
                   <input type="text" class="form-control form-control-user" id="pendidikan" name="pendidikan" placeholder="Pendidikan Terakhir - Jurusan / Gelar" value="<?= set_value('pendidikan') ?>">
                 </div>
-                <!-- <div class="form-group row">
-                  <div class="col-sm-6 mb-3 mb-sm-0">
-                    <input type="text" class="form-control form-control-user" id="nama_perusahaan" name="nama_perusahaan" placeholder="Nama Perusahaan" value="<?= set_value('nama_perusahaan') ?>">
-                  </div>
-                  <div class="col-sm-6">
-                    <input type="text" class="form-control form-control-user" id="jabatan" name="jabatan" placeholder="Jabatan Terakhir" value="<?= set_value('jabatan') ?>">
-                  </div>
-                </div>
-                <div class="form-group">
-                  <input type="text" class="form-control form-control-user" id="alamat_kantor" name="alamat_kantor" placeholder="Alamat Kantor" value="<?= set_value('alamat_kantor') ?>">
-                </div>
-                <div class="form-group">
-                  <input type="text" class="form-control form-control-user" id="no_telp_kantor" name="no_telp_kantor" placeholder="Nomor Telpon Kantor" value="<?= set_value('no_telp_kantor') ?>">
-                </div> -->
                 <div class="form-group">
                   <label class="form-label">Upload Foto 3 x 4</label>
                   <input type="file" name="foto" id="img-profile" class="form-control">
@@ -112,9 +96,6 @@
 
               </form>
               <hr>
-              <!-- <div class="text-center">
-                <a class="small" href="forgot-password.html">Forgot Password?</a>
-              </div> -->
               <div class="text-center">
                 <a class="small" href="<?= base_url('auth'); ?>">Sudah punya akun? Masuk!</a>
               </div>

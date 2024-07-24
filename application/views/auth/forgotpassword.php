@@ -22,22 +22,16 @@
                     <?= form_error('email', '<small class="text-danger pl-3">', '</small>'); ?>
                   </div>
                   <div class="form-group">
-                    <!-- <label for="newPassword" class="col-md-4 col-lg-3 col-form-label">New Password</label> -->
                     <input name="new_password1" type="password" class="form-control form-control-user" id="new_password1" placeholder="New Password...">
                     <?= form_error('new_password1', '<small class="text-danger pl-3">', '</small>'); ?>
-
                   </div>
                   <div class="form-group">
-                    <!-- <label for="renewPassword" class="col-md-4 col-lg-3 col-form-label">Re-enter New Password</label> -->
                     <input name="new_password2" type="password" class="form-control form-control-user" id="new_password2" placeholder="Re-enter New Password...">
                     <?= form_error('new_password2', '<small class="text-danger pl-3">', '</small>'); ?>
-
                   </div>
-
                   <button type="submit" onclick="alert('Yakin Akan Merubah Password Anda !!')" class="btn btn-primary btn-user btn-block">
                     Update Password
                   </button>
-
                 </form>
                 <hr>
                 <div class="text-center">
