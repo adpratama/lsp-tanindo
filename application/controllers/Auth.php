@@ -317,7 +317,8 @@ class Auth extends CI_Controller
       //Content
       $mail->isHTML(true);   //Set email format to HTML
       $mail->Subject = 'Notifikasi Registrasi Akun Baru';
-      $mail->Body    = 'Selamat Kepada ' . $mydata['username'] . ' Telah berhasil membuat akun di Web site LSP Tanindo silahkan Coba Login Ke web site Kami Untuk Melengkapi data yang belum ada. silahkan lakukan assesment mandiri pada file tersebut';
+      $mail->Body    = 'Selamat Kepada ' . $mydata['username'] . ' Telah berhasil membuat akun di Web site LSP Tanindo silahkan Coba Login Ke web site Kami Untuk Melengkapi data yang belum ada. 
+      silahkan lakukan assesment mandiri pada file yang tertera di bawah ini.';
       $mail->addAttachment('assets/document/Formulir_Anggota.docx');
       $mail->addAttachment('assets/document/Assesment_Mandiri.docx');
       $mail->AltBody = 'This is the body in plain text for non-HTML mail clients';
