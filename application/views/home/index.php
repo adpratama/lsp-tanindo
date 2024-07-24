@@ -78,7 +78,7 @@
             profesional, konsisten dan berkelanjutan. Kini profesi
             penyuluh pertanian menuju ketahanan pangan, kemandirian
             pangan dan kedaulatan pangan. Oleh karena itu telah
-            hadir Lembaga Sertifikasi Profesi (LSP) Tani Nelayan
+            hadir Lembaga Sertifikasi Profesi (LSP) Tani Andalan
             Indonesia (Tanindo) untuk melaksanakan sertifikasi
             penyuluh pertanian agar eksistensinya lebih diakui serta
             perannya lebih besar bagi pembangunan pertanian di
@@ -431,10 +431,10 @@
           <img src="<?= base_url('material/') ?>assets/img/partners/logo-bnsp.png" class="img-fluid" alt="Badan Nasional Standarisasi Profesi" />
         </div>
         <div class="col-6 col-md-3 col-lg-2 mb-4">
-          <img src="<?= base_url('material/') ?>assets/img/partners/logo-ktna.png" class="img-fluid" alt="Kelompok Tani Nelayan Andalan" />
+          <img src="<?= base_url('material/') ?>assets/img/partners/logo-ktna.png" class="img-fluid" alt="Kelompok Tani Andalan Indonesia" />
         </div>
         <div class="col-6 col-md-3 col-lg-2 mb-4">
-          <img src="assets/img/partners/logo-pppsi-old.png" class="img-fluid" alt="Kelompok Tani Nelayan Andalan" />
+          <img src="assets/img/partners/logo-pppsi-old.png" class="img-fluid" alt="Kelompok Tani Andalan Indonesia" />
         </div>
         <div class="col-6 col-md-3 col-lg-2 mb-4">
           <img src="<?= base_url('material/') ?>assets/img/gallery/logo-tanindo.png" class="img-fluid" alt="LSP Tanindo" />
