@@ -294,7 +294,6 @@ class Auth extends CI_Controller
     $mail = new PHPMailer(true);
 
     try {
-
       //Server settings
       $mail->SMTPDebug = SMTP::DEBUG_SERVER;  //Enable verbose debug output
       $mail->isSMTP();   //Send using SMTP

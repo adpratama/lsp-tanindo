@@ -12,7 +12,7 @@
             <div class="col-lg">
               <div class="p-5">
                 <div class="text-center">
-                  <img src="<?= base_url('assets/img/profile/') ?>android-chrome-192x192.png " alt="Logo" class="logo" sizes="auto">
+                  <img src="<?= base_url('assets/img/profile/') ?>logo_untuk_regis-removebg-preview.png " alt="Logo" class="logo" width="100%"><br><br>
                   <h1 class="h4 text-gray-900 mb-4">Reset Password !</h1>
                 </div>
                 <?= $this->session->flashdata('message'); ?>
