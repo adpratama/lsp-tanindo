@@ -56,7 +56,7 @@
                     </div>
                     <div class="form-group">
                       <label for="form-label">Tanggal Lahir</label>
-                      <input type="date" class="form-control " id="tanggal_lahir" name="tanggal_lahir" value="<?= set_value('tanggal_lahir'); ?>">
+                      <input type="text" class="form-control " id="tanggal_lahir" name="tanggal_lahir" value="<?= set_value('tanggal_lahir'); ?>" placeholder="Format tgl 1997-09-24">
                     </div>
                     <div class="form-group">
                       <label for="form-label">Alamat</label>
