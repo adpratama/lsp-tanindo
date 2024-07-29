@@ -102,9 +102,9 @@ class Home extends CI_Controller
 
       // query mengambil urutan terbesar 
       $nomor = $this->H_member->get_nomor();
-      $nomor_urut = $this->H_member->get_nomor_urut();
+      // $nomor_urut = $this->H_member->get_nomor_urut();
 
-      $number = $nomor + 1;
+      $number = $nomor['max'] + 1;
       $no_urut = sprintf("%06d", $number);
       // $ambil_depan = substr($nomor_urut['nomor_max'], 6, 6);
       // print_r($nomor['max']);
@@ -112,6 +112,7 @@ class Home extends CI_Controller
 
       // membuat nomor urut baru
       // $post_date = date('Y');
+      // $nomorbaru = "$ambil_depan";
       $nomor_user = "$provinsi-00-$no_urut";
 
       $data_insert = array(
