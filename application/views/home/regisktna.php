@@ -109,9 +109,19 @@
                       <input type="text" class="form-control form-control-user" id="nomor_hp" name="nomor_hp" placeholder="Input Nomor HP....." value="<?= set_value('nomor_hp'); ?>">
                       <?= form_error('nomor_hp', '<small class="text-danger pl-3">', '</small>'); ?>
                     </div>
-                    <div class="form-group">
+                    <!-- <div class="form-group">
                       <label class="form-label">Upload Foto 3 x 4</label>
                       <input type="file" name="foto_profil" id="img-profile" class="form-control">
+                    </div> -->
+
+                    <div class="col-md-6">
+                      <div id="my_camera"></div>
+                      <br />
+                      <input type=button value="Take Snapshot" onClick="take_snapshot()">
+                      <input type="hidden" name="image" class="image-tag">
+                    </div>
+                    <div class="col-md-6">
+                      <div id="results">Your captured image will appear here...</div>
                     </div>
 
                     <button type="submit" class="btn btn-primary btn-user btn-block">
@@ -126,4 +136,23 @@
         </div>
       </div>
     </div>
+
+    <!-- Configure a few settings and attach camera -->
+    <script language="JavaScript">
+      Webcam.set({
+        width: 490,
+        height: 390,
+        image_format: 'jpeg',
+        jpeg_quality: 90
+      });
+
+      Webcam.attach('#my_camera');
+
+      function take_snapshot() {
+        Webcam.snap(function(data_uri) {
+          $(".image-tag").val(data_uri);
+          document.getElementById('results').innerHTML = '<img src="' + data_uri + '"/>';
+        });
+      }
+    </script>
 </body>

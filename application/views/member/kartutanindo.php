@@ -118,7 +118,8 @@
           <td class="bagian_kiri">
             <div class="qrcode">
               <img src="<?= base_url('assets/img/kartu/') . $gambar_name ?>" alt="QrCode" height="60px" width="60px">
-              <h6><?= $users['nik'] ?><br><b><?= $users['alamat'] ?></b></h6>
+              <h6><b><?= $users['alamat'] ?></b></h6>
+              <!-- <?= $users['nik'] ?><br> -->
             </div>
           </td>
           <td class="bagian_kanan">

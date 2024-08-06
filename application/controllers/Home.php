@@ -77,27 +77,54 @@ class Home extends CI_Controller
       $nomor_hp = $this->input->post('nomor_hp');
 
       // cek jika ada foto
-      $upload_img = $_FILES['foto_profil']['name'];
-      // var_dump($upload_img);
+      // $upload_img = $_FILES['foto_profil']['name'];
+      // // var_dump($upload_img);
 
-      if ($upload_img) {
-        $config['allowed_types'] = 'jpeg|jpg|png|pdf';
-        $config['max_size']     = '2048';
-        $config['remove_spaces'] = TRUE;
-        $config['upload_path'] = './assets/img/profile';
+      // if ($upload_img) {
+      //   $config['allowed_types'] = 'jpeg|jpg|png|pdf';
+      //   $config['max_size']     = '2048';
+      //   $config['remove_spaces'] = TRUE;
+      //   $config['upload_path'] = './assets/img/profile';
 
-        $this->load->library('upload', $config);
+      //   $this->load->library('upload', $config);
 
-        if ($this->upload->do_upload('foto_profil')) {
-          $new_img = $this->upload->data('file_name');
-          // $data1 = $new_img;
+      //   if ($this->upload->do_upload('foto_profil')) {
+      //     $new_img = $this->upload->data('file_name');
+      //     // $data1 = $new_img;
 
-          echo 'true';
-        } else {
-          echo $this->upload->display_errors();
+      //     echo 'true';
+      //   } else {
+      //     echo $this->upload->display_errors();
 
-          echo 'false';
-        }
+      //     echo 'false';
+      //   }
+      // }
+
+      // Mengambil data foto dari input dan decoding dari base64
+      $foto = $this->input->post('image');
+      $foto = str_replace('data:image/jpeg;base64,', '', $foto);
+      $foto = base64_decode($foto, true);
+
+      // var_dump($foto);
+      // exit;
+
+      // Mengambil username untuk penamaan file foto
+      $username = $this->input->post('username');
+      $nama_foto = 'masuk-' . date('Y-m-d-H-i-s') . '-' . $username . '.png';
+      $file_path = FCPATH . 'assets/img/profile/' . $nama_foto;
+
+      // Memastikan direktori tujuan ada dan memiliki izin yang tepat
+      if (!is_dir(FCPATH . 'assets/img/profile/')) {
+        mkdir(FCPATH . 'assets/img/profile/', 0777, true);
+      }
+
+      // Menyimpan file foto dan mengatur pesan flashdata
+      if (file_put_contents($file_path, $foto)) {
+        $this->session->set_flashdata('message_name', 'Presensi masuk berhasil disimpan');
+      } else {
+        $this->session->set_flashdata('message_error', 'Gagal menyimpan foto presensi masuk');
+        redirect($_SERVER['HTTP_REFERER']);
+        return;
       }
 
       // query mengambil urutan terbesar 
@@ -106,6 +133,7 @@ class Home extends CI_Controller
 
       $number = $nomor['max'] + 1;
       $no_urut = sprintf("%06d", $number);
+      // untuk mengambil string sebagian
       // $ambil_depan = substr($nomor_urut['nomor_max'], 6, 6);
       // print_r($nomor['max']);
       // var_dump($ambil_depan, $nomor);
@@ -127,7 +155,7 @@ class Home extends CI_Controller
         'alamat' => $alamat,
         'provinsi' => $provinsi,
         'phone_number' => $nomor_hp,
-        'image' => $new_img
+        'image' => $nama_foto
       );
 
       // var_dump($data_insert);

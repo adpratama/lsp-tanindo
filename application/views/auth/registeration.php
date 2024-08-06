@@ -73,6 +73,10 @@
                 <div class="form-group">
                   <label class="form-label">Upload Foto 3 x 4</label>
                   <input type="file" name="foto" id="img-profile" class="form-control">
+                  <!-- <canvas id="camera--sensor"></canvas>
+                  <video id="camera--view" autoplay playsinline></video>
+                  <img src="//:0" alt="" id="camera--output">
+                  <button id="camera--trigger">Take a picture</button> -->
                 </div>
                 <div class="form-group">
                   <label class="form-label">Upload Sertifikat</label>

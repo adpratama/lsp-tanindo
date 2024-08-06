@@ -155,7 +155,7 @@
         <tr>
           <td class="bagian_kiri">
             <div class="qrcode">
-              <img src="<?= base_url('assets/img/kartu/') . $gambar_name ?>" alt="QrCode" height="70px" width="70px"><br>
+              <img src="<?= base_url('assets/img/kartu/') . $gambar_name ?>" alt="QrCode" height="90px" width="90px"><br>
               <!-- <h6>23-00-000001</h6> -->
               <b><?= $profil['nomor_urut'] ?></b>
             </div>
