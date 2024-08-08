@@ -114,13 +114,15 @@
                       <input type="file" name="foto_profil" id="img-profile" class="form-control">
                     </div> -->
 
-                    <div class="col-md-6">
+                    <!-- <div class="col-md-4"> -->
+                    <div class="form-group">
                       <div id="my_camera"></div>
-                      <br />
+                      <!-- <br /> -->
                       <input type=button value="Take Snapshot" onClick="take_snapshot()">
                       <input type="hidden" name="image" class="image-tag">
                     </div>
-                    <div class="col-md-6">
+                    <!-- <div class="col-md-4"> -->
+                    <div class="form-group">
                       <div id="results">Your captured image will appear here...</div>
                     </div>
 
@@ -140,8 +142,8 @@
     <!-- Configure a few settings and attach camera -->
     <script language="JavaScript">
       Webcam.set({
-        width: 490,
-        height: 390,
+        width: 260,
+        height: 350,
         image_format: 'jpeg',
         jpeg_quality: 90
       });
