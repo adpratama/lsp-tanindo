@@ -30,6 +30,12 @@
       border: 1px solid;
       background: #ccc;
     }
+
+
+    #my_camera video {
+      max-width: 80%;
+      max-height: 80%;
+    }
   </style>
 
 </head>

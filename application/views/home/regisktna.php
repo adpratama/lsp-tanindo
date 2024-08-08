@@ -142,8 +142,8 @@
     <!-- Configure a few settings and attach camera -->
     <script language="JavaScript">
       Webcam.set({
-        width: 260,
-        height: 350,
+        // width: 260,
+        height: 300,
         image_format: 'jpeg',
         jpeg_quality: 90
       });
